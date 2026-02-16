@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    =========================================================================
+    TEMA DE LA APLICACIÓN
+    =========================================================================
+    Usamos Material3 (Material You) como base.
+    El tema real se maneja en Compose con MaterialTheme.
+    =========================================================================
+    -->
+    <style name="Theme.AmiiboVault" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Colores de la barra de estado -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

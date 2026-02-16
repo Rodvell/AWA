@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="0.35"
+        android:scaleY="0.35"
+        android:translateX="35"
+        android:translateY="35">
+        <!-- Amiibo-style figure icon -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M54,10
+                C38,10 25,23 25,39
+                C25,50 32,59 42,63
+                L42,75
+                C42,80 46,84 51,84
+                L57,84
+                C62,84 66,80 66,75
+                L66,63
+                C76,59 83,50 83,39
+                C83,23 70,10 54,10
+                Z
+                M45,35
+                C47.76,35 50,37.24 50,40
+                C50,42.76 47.76,45 45,45
+                C42.24,45 40,42.76 40,40
+                C40,37.24 42.24,35 45,35
+                Z
+                M63,35
+                C65.76,35 68,37.24 68,40
+                C68,42.76 65.76,45 63,45
+                C60.24,45 58,42.76 58,40
+                C58,37.24 60.24,35 63,35
+                Z
+                M54,55
+                C48,55 44,51 44,51
+                C44,51 48,53 54,53
+                C60,53 64,51 64,51
+                C64,51 60,55 54,55
+                Z"/>
+        <!-- Base/pedestal -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M35,88
+                L73,88
+                C76,88 78,90 78,93
+                L78,98
+                L30,98
+                L30,93
+                C30,90 32,88 35,88
+                Z"/>
+    </group>
+</vector>

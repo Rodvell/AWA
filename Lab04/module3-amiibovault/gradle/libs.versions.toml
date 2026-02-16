@@ -1,0 +1,139 @@
+# ============================================================================
+# AMIIBO VAULT - Catálogo de Versiones de Dependencias
+# ============================================================================
+# Este archivo centraliza todas las versiones de las dependencias del proyecto.
+# Utiliza el formato TOML del Gradle Version Catalog para una gestión moderna.
+#
+# IMPORTANTE: KSP (Kotlin Symbol Processing) reemplaza a KAPT para Room.
+# La versión de KSP debe coincidir con la versión de Kotlin (ej: 2.0.21 -> 2.0.21-x.x.x)
+# ============================================================================
+
+[versions]
+# -------------------------
+# Android & Kotlin Core
+# -------------------------
+agp = "9.0.0"                           # Android Gradle Plugin
+kotlin = "2.2.10"                        # Kotlin - debe coincidir con KSP
+ksp = "2.3.2"                   # KSP - primera parte DEBE coincidir con Kotlin
+
+# -------------------------
+# Android SDK
+# -------------------------
+compileSdk = "36"
+minSdk = "24"
+targetSdk = "36"
+
+# -------------------------
+# AndroidX Core
+# -------------------------
+coreKtx = "1.15.0"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.9.3"
+
+# -------------------------
+# Jetpack Compose (BOM)
+# -------------------------
+composeBom = "2024.12.01"
+
+# -------------------------
+# Navigation
+# -------------------------
+navigationCompose = "2.8.4"
+
+# -------------------------
+# Room Database (Local)
+# -------------------------
+# Room 2.7.x requiere Kotlin 2.0+ y KSP
+room = "2.7.0"
+
+# -------------------------
+# Networking
+# -------------------------
+retrofit = "2.11.0"                      # HTTP Client
+kotlinxSerializationJson = "1.7.3"       # JSON parsing
+retrofitKotlinxSerialization = "1.0.0"   # Retrofit + Kotlinx Serialization converter
+okhttp = "4.12.0"                        # HTTP client subyacente
+
+# -------------------------
+# Image Loading
+# -------------------------
+# Coil 3.x es Kotlin Multiplatform
+coil = "3.0.4"
+
+# -------------------------
+# Dependency Injection
+# -------------------------
+koin = "4.0.0"
+
+[libraries]
+# -------------------------
+# AndroidX Core
+# -------------------------
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+
+# -------------------------
+# Jetpack Compose (usando BOM para versiones consistentes)
+# -------------------------
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+
+# -------------------------
+# Navigation Compose
+# -------------------------
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+
+# -------------------------
+# Room Database
+# -------------------------
+# runtime: Clases base de Room (Database, Entity, Dao)
+# ktx: Extensiones de Kotlin (soporte para Coroutines/Flow)
+# compiler: Procesador de anotaciones (usar con KSP, no KAPT)
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# -------------------------
+# Retrofit (Networking)
+# -------------------------
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerialization" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# -------------------------
+# Kotlinx Serialization
+# -------------------------
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+# -------------------------
+# Coil (Image Loading)
+# -------------------------
+# coil-compose: Integración con Jetpack Compose (AsyncImage)
+# coil-network-okhttp: Backend de red usando OkHttp
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
+
+# -------------------------
+# Koin (Dependency Injection)
+# -------------------------
+# koin-android: Integración con Android (Context, ViewModel)
+# koin-androidx-compose: Integración con Jetpack Compose
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+
+[plugins]
+# -------------------------
+# Plugins de Gradle
+# -------------------------
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+# KSP: Reemplaza a KAPT - es más rápido y genera código Kotlin nativo
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

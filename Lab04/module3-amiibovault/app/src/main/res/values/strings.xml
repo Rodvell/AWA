@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Amiibo Vault</string>
+    <string name="loading_amiibos">Cargando Amiibos...</string>
+    <string name="loading_detail">Cargando detalle...</string>
+    <string name="error_loading">Error al cargar</string>
+    <string name="retry">Reintentar</string>
+    <string name="back">Volver</string>
+    <string name="amiibo_image_description">Imagen de %1$s</string>
+
+    <!-- Detail Screen -->
+    <string name="character">Personaje</string>
+    <string name="game_series">Serie de juego</string>
+    <string name="amiibo_series">Serie Amiibo</string>
+    <string name="type">Tipo</string>
+    <string name="release_dates">Fechas de lanzamiento</string>
+    <string name="region_na">Norteamérica</string>
+    <string name="region_eu">Europa</string>
+    <string name="region_jp">Japón</string>
+    <string name="region_au">Australia</string>
+    <string name="not_available">No disponible</string>
+    <string name="compatible_games">Juegos compatibles</string>
+</resources>
