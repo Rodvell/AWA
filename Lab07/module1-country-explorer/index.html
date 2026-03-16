@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explorador de Países - Busca información turística de naciones del mundo"
+    />
+    <title>Country Explorer - Explorador de Países</title>
+    <!--
+      ==========================================================================
+      MÓDULO 1: FUNDAMENTOS WEB
+      ==========================================================================
+      Este proyecto enseña:
+      1. HTML5 semántico - Estructura correcta del documento
+      2. Tailwind CSS 4 - Estilos con clases utilitarias
+      3. TypeScript vanilla - Sin frameworks, DOM directo
+      4. Fetch API - Consumo de APIs REST
+      ==========================================================================
+    -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <!--
+      Estructura semántica HTML5:
+      - <header>: Cabecera con título y búsqueda
+      - <main>: Contenido principal
+      - <footer>: Pie de página
+    -->
+    <div id="app" class="container mx-auto px-4 py-8">
+      <!-- Header con buscador -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Explorador de Paises
+        </h1>
+        <p class="text-slate-400 text-lg mb-8">
+          Descubre información turística de cualquier nación del mundo
+        </p>
+
+        <!-- Formulario de búsqueda -->
+        <div class="max-w-2xl mx-auto">
+          <div class="flex gap-4">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar país (ej: España, México, Argentina...)"
+              class="flex-1 px-6 py-4 rounded-xl bg-slate-700 text-white placeholder-slate-400 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            />
+            <button
+              id="searchButton"
+              class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            >
+              Buscar
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contenedor principal -->
+      <main>
+        <!-- Estado de carga -->
+        <div id="loadingState" class="hidden text-center py-12">
+          <div
+            class="animate-spin rounded-full h-16 w-16 border-4 border-blue-500 border-t-transparent mx-auto"
+          ></div>
+          <p class="text-slate-400 mt-4">Buscando países...</p>
+        </div>
+
+        <!-- Estado de error -->
+        <div
+          id="errorState"
+          class="hidden max-w-md mx-auto bg-red-900/50 border border-red-500 rounded-xl p-6 text-center"
+        >
+          <p class="text-red-400" id="errorMessage">Error al buscar países</p>
+          <button
+            id="retryButton"
+            class="mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+          >
+            Reintentar
+          </button>
+        </div>
+
+        <!-- Estado vacío -->
+        <div id="emptyState" class="hidden text-center py-12">
+          <p class="text-slate-400 text-xl">
+            🔍 Escribe el nombre de un país para comenzar
+          </p>
+        </div>
+
+        <!-- Estado sin resultados -->
+        <div id="noResultsState" class="hidden text-center py-12">
+          <p class="text-slate-400 text-xl">
+            😕 No se encontraron países con ese nombre
+          </p>
+        </div>
+
+        <!-- Lista de países -->
+        <section id="countriesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Los países se renderizarán aquí dinámicamente -->
+        </section>
+
+        <!-- Modal de detalle del país -->
+        <div
+          id="countryModal"
+          class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <div
+            id="modalContent"
+            class="bg-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          >
+            <!-- El contenido del modal se renderizará dinámicamente -->
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="mt-16 text-center text-slate-500 text-sm">
+        <p>
+          Datos proporcionados por
+          <a
+            href="https://restcountries.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-400 hover:underline"
+            >REST Countries API</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <!-- Script principal - TypeScript compilado por Vite -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

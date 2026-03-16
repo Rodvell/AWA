@@ -1,0 +1,39 @@
+# =============================================================================
+# .GITIGNORE - Module 1: Country Explorer
+# =============================================================================
+# Archivos y carpetas que NO deben subirse al repositorio
+# =============================================================================
+
+# Dependencias
+node_modules/
+
+# Build output
+dist/
+
+# Variables de entorno (contienen secretos)
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Cache
+.cache/
+.eslintcache
+
+# Archivos temporales
+*.tmp
+*.temp

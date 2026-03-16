@@ -1,0 +1,88 @@
+/* =============================================================================
+ * ESTILOS PRINCIPALES - Module 1: Country Explorer
+ * =============================================================================
+ * En Tailwind CSS 4.x, usamos @import para cargar el framework.
+ * La configuración ahora se hace directamente en CSS con @theme.
+ *
+ * ## Cambios en Tailwind v4
+ * - @tailwind base/components/utilities → @import "tailwindcss"
+ * - @layer components con @apply sigue funcionando
+ * - @layer utilities → @utility para utilidades personalizadas
+ * ============================================================================= */
+
+@import 'tailwindcss';
+
+/* =============================================================================
+ * CAPA BASE - Estilos globales
+ * =============================================================================
+ * Usamos @layer base para añadir estilos que afectan elementos HTML directamente.
+ * Estos estilos tienen la misma especificidad que los estilos base de Tailwind.
+ * ============================================================================= */
+@layer base {
+  /* Configuración de scroll suave para toda la página */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Estilos base para el body */
+  body {
+    font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+  }
+}
+
+/* =============================================================================
+ * CAPA DE COMPONENTES
+ * =============================================================================
+ * Aquí definimos clases reutilizables para componentes específicos.
+ * Usamos @apply para combinar múltiples utilidades de Tailwind.
+ *
+ * ## ¿Cuándo usar @apply?
+ * - Para patrones que se repiten frecuentemente
+ * - Para componentes con muchas clases que harían el HTML ilegible
+ * - EVITAR usar @apply para todo; las clases inline son más explícitas
+ * ============================================================================= */
+@layer components {
+  /* Tarjeta de país con efecto hover */
+  .country-card {
+    @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden transition-all duration-300;
+    @apply hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1;
+  }
+
+  /* Botón de acción primario */
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors;
+    @apply focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  /* Badge para etiquetas informativas */
+  .info-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 bg-slate-700 rounded-full text-sm text-slate-300;
+  }
+}
+
+/* =============================================================================
+ * UTILIDADES PERSONALIZADAS
+ * =============================================================================
+ * En Tailwind v4, las utilidades personalizadas se definen con @utility.
+ * Cada @utility crea una clase que puede usar variantes (hover:, md:, etc.)
+ * ============================================================================= */
+
+/* Animación de pulso lento para estados de carga */
+@utility animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Efecto de gradiente de texto */
+@utility text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-blue-400), var(--color-cyan-400));
+}
